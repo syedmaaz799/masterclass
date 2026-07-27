@@ -2,7 +2,7 @@
 
 import { useRef, type CSSProperties, type RefObject } from "react";
 import { usePauseWhenOffscreen } from "@/components/motion/use-pause-when-offscreen";
-import { Container, Display, Headline, Body, Eyebrow, Button, EventPrice, EventTitle } from "@/components/ui";
+import { Container, Display, Headline, Body, Eyebrow, Button, EventTitle } from "@/components/ui";
 import {
   ScrollStory,
   StoryStage,
@@ -181,10 +181,7 @@ export function AICompaniesStory() {
             <EventTitle as="h2" size="l" />
             <EventMeta className="justify-center" />
             <Button size="lg" onClick={handleReserve}>
-              <span className="inline-flex flex-wrap items-center justify-center gap-x-1.5">
-                {event.cta.primaryWithPrice}
-                <EventPrice size="sm" />
-              </span>
+              {event.cta.primary}
             </Button>
           </div>
         </Container>
@@ -207,8 +204,7 @@ export function AICompaniesStory() {
                 className="pointer-events-auto min-h-11 w-full max-w-md lg:min-h-12 lg:max-w-none lg:px-8"
               >
                 <span className="inline-flex flex-wrap items-center justify-center gap-x-1.5 text-body lg:text-body-lg">
-                  {event.cta.primaryWithPrice}
-                  <EventPrice size="sm" />
+                  {event.cta.primary}
                 </span>
               </Button>
             </div>

@@ -14,30 +14,26 @@ export const event = {
   heroSubheadline:
     "Discover how to create AI Agents that generate leads, automate communication, and perform real business tasks without coding.",
 
-  // Day 1: Saturday 25 July 2026, 7:00 PM IST. Countdown targets first session.
-  startsAt: new Date("2026-07-25T19:00:00+05:30"),
-  // Day 2: Sunday 26 July 2026, 10:00 PM IST (end of second session).
-  endsAt: new Date("2026-07-26T22:00:00+05:30"),
+  // Students pick their own session slot (see src/content/slots.ts):
+  // any upcoming date, 2:00–4:00 PM or 5:00–7:00 PM IST.
   timezone: "Asia/Kolkata",
   timezoneLabel: "IST",
 
-  durationHours: 6,
-  sessionHoursPerDay: 3,
+  durationHours: 2,
   mode: "Live Online Masterclass",
 
   compareAtPriceInINR: 4999,
-  priceInINR: 111,
+  /** Offer price — 0 means Free (no checkout). */
+  priceInINR: 0,
 
   schedule: {
-    heroEyebrow: "Live Online Masterclass · 25–26 Jul 2026",
-    datePill: "Sat 25 & Sun 26 Jul 2026",
-    timePill: "7:00 PM – 10:00 PM IST · Sat & Sun",
-    footerDate: "Saturday 25 & Sunday 26 July 2026",
-    footerTime: "7:00 PM – 10:00 PM IST · Saturday & Sunday",
-    durationLabel: "6 hours · 2 live sessions",
-    finalCtaPriceSuffix: "· two live sessions · 3 hours each day",
-    countdownAriaLabel:
-      "Time remaining until the masterclass begins on Saturday 25 July 2026 at 7:00 PM IST",
+    heroEyebrow: "Live Online Masterclass · Choose your slot",
+    datePill: "Pick your date",
+    timePill: "2:00 PM – 4:00 PM or 5:00 PM – 7:00 PM IST",
+    footerDate: "Daily live sessions — choose your date",
+    footerTime: "2:00 PM – 4:00 PM or 5:00 PM – 7:00 PM IST",
+    durationLabel: "2-hour live session",
+    finalCtaPriceSuffix: "· one live session · 2 hours · Free",
   },
 
   // Seats remaining is config-driven, never random (04-conversion).
@@ -47,8 +43,8 @@ export const event = {
 
   cta: {
     primary: "Reserve My Seat",
-    /** Pair with <EventPrice /> in buttons (e.g. "Reserve My Seat for"). */
-    primaryWithPrice: "Reserve My Seat for",
+    /** Kept for older call sites; prefer `primary` for free registration. */
+    primaryWithPrice: "Reserve My Seat",
     secondary: "Watch Demo",
   },
 } as const;

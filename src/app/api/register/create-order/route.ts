@@ -1,13 +1,8 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { event } from "@/content/event";
-import { isPaymentsConfigured } from "@/lib/env";
-import { getRazorpay, getRazorpayKeyId } from "@/lib/razorpay";
-import {
-  asRecordId,
-  createRegistration,
-  updateRegistration,
-} from "@/lib/nocodb/registrations";
+import { isRegistrationConfigured } from "@/lib/env";
+import { asRecordId, createRegistration } from "@/lib/nocodb/registrations";
 import { registrationSchema } from "@/lib/validation";
 
 const createOrderSchema = registrationSchema.extend({
@@ -16,10 +11,14 @@ const createOrderSchema = registrationSchema.extend({
 
 const courseName = `${event.brand} ${event.series} — ${event.title}`;
 
+/**
+ * Free registration — saves the seat to NocoDB with no payment step.
+ * Route path kept as create-order for existing client callers.
+ */
 export async function POST(request: Request) {
-  if (!isPaymentsConfigured()) {
+  if (!isRegistrationConfigured()) {
     return NextResponse.json(
-      { error: "Payment system is not configured." },
+      { error: "Registration system is not configured." },
       { status: 503 },
     );
   }
@@ -40,10 +39,7 @@ export async function POST(request: Request) {
   }
 
   const data = parsed.data;
-  const amountPaise = event.priceInINR * 100;
   const phoneNumber = data.phoneNumber.replace(/\D/g, "");
-
-  let registrationId: string;
 
   try {
     const registration = await createRegistration({
@@ -53,11 +49,15 @@ export async function POST(request: Request) {
       country_code: data.phoneCountry,
       city: data.city,
       user_role: data.currentRole,
-      amount_paid: event.priceInINR,
-      payment_status: "unpaid",
+      slot_date: data.slotDate,
+      slot_time: data.slotTime,
       course_name: courseName,
     });
-    registrationId = asRecordId(registration.Id);
+
+    return NextResponse.json({
+      ok: true,
+      registrationId: asRecordId(registration.Id),
+    });
   } catch (error) {
     console.error("NocoDB insert failed:", error);
     const isAuth =
@@ -73,47 +73,6 @@ export async function POST(request: Request) {
           : "Could not save registration. Try again.",
       },
       { status: isAuth ? 401 : 500 },
-    );
-  }
-
-  try {
-    const razorpay = getRazorpay();
-    const order = await razorpay.orders.create({
-      amount: amountPaise,
-      currency: "INR",
-      receipt: `reg_${registrationId}`.slice(0, 40),
-      notes: {
-        registration_id: registrationId,
-        email: data.email,
-        source: data.source,
-      },
-    });
-
-    try {
-      await updateRegistration(registrationId, { order_id: order.id });
-    } catch (updateError) {
-      console.error("NocoDB order update failed:", updateError);
-    }
-
-    return NextResponse.json({
-      registrationId,
-      orderId: order.id,
-      amount: amountPaise,
-      currency: "INR",
-      keyId: getRazorpayKeyId(),
-    });
-  } catch (error) {
-    console.error("Razorpay order creation failed:", error);
-
-    try {
-      await updateRegistration(registrationId, { payment_status: "failed" });
-    } catch (updateError) {
-      console.error("NocoDB failed-status update failed:", updateError);
-    }
-
-    return NextResponse.json(
-      { error: "Could not start payment. Try again." },
-      { status: 502 },
     );
   }
 }

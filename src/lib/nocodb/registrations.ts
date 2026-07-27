@@ -8,11 +8,8 @@ export type RegistrationRecord = {
   country_code: string;
   city: string | null;
   user_role: string | null;
-  payment_id: string | null;
-  order_id: string | null;
-  payment_signature: string | null;
-  amount_paid: number | null;
-  payment_status: string | null;
+  slot_date: string | null;
+  slot_time: string | null;
   course_name: string | null;
   CreatedAt?: string;
   created_at?: string;
@@ -25,16 +22,15 @@ export type CreateRegistrationInput = {
   country_code: string;
   city: string;
   user_role: string;
-  amount_paid: number;
-  payment_status: string;
+  slot_date: string;
+  slot_time: string;
   course_name: string;
 };
 
 export type UpdateRegistrationInput = {
-  order_id?: string;
-  payment_id?: string;
-  payment_signature?: string;
-  payment_status?: string;
+  course_name?: string;
+  slot_date?: string;
+  slot_time?: string;
 };
 
 function asRecordId(id: number | string): string {

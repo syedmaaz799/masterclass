@@ -18,7 +18,6 @@ export type AnalyticsEvent =
   | "registration_error"
   | "faq_toggle"
   | "scroll_depth_milestone"
-  | "countdown_expired_view"
   | "feedback_submit";
 
 /** Allowed, non-PII property values. */
@@ -29,6 +28,8 @@ export type AnalyticsProps = Record<
 
 /** Registration field keys only — never values. */
 export type RegistrationFieldKey =
+  | "slotDate"
+  | "slotTime"
   | "name"
   | "email"
   | "phone"

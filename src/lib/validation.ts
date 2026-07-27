@@ -5,6 +5,7 @@ import {
   dialCodeForCountry,
   phoneCountries,
 } from "@/content/phone-countries";
+import { isSelectableSlotDate, slotTimes } from "@/content/slots";
 
 /**
  * Validation architecture — shared schemas for client + server (09-forms, 12-coding-standards).
@@ -20,8 +21,15 @@ export type ExperienceLevel = (typeof experienceLevels)[number];
 
 const phoneCountryCodes = phoneCountries.map((c) => c.code) as [string, ...string[]];
 
-/** Registration form — five fields (09-forms). */
+/** Registration form — slot selection + contact fields (09-forms). */
 export const registrationSchema = z.object({
+  slotDate: z
+    .string()
+    .regex(/^\d{4}-\d{2}-\d{2}$/, "Select a date for your session.")
+    .refine(isSelectableSlotDate, "Select an available date."),
+  slotTime: z.enum(slotTimes, {
+    message: "Select a time slot.",
+  }),
   name: z
     .string()
     .trim()

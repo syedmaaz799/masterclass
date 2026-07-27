@@ -25,7 +25,7 @@ const sizeClasses = {
 
 /**
  * Strikethrough compare-at + offer price (04-conversion price-as-reassurance).
- * Sourced from content/event.ts — single source of truth.
+ * When `priceInINR` is 0, displays Free.
  */
 export function EventPrice({
   size = "md",
@@ -33,6 +33,7 @@ export function EventPrice({
   showCompareAt = true,
 }: EventPriceProps) {
   const s = sizeClasses[size];
+  const isFree = event.priceInINR <= 0;
 
   return (
     <span className={cn("inline-flex flex-wrap items-baseline gap-x-2 gap-y-0.5", className)}>
@@ -46,7 +47,7 @@ export function EventPrice({
       ) : null}
       <span className={cn(s.price, "text-text")}>
         {showCompareAt ? <span className="sr-only">Now </span> : null}
-        {formatINR(event.priceInINR)}
+        {isFree ? "Free" : formatINR(event.priceInINR)}
       </span>
     </span>
   );

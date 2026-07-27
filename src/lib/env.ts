@@ -84,15 +84,18 @@ export const serverEnv = parsedServer.data;
 
 export const isProduction = parsedServer.data.NODE_ENV === "production";
 
-/** True when registration payment + NocoDB persistence can run. */
-export function isPaymentsConfigured(): boolean {
+/** True when free registration + NocoDB persistence can run. */
+export function isRegistrationConfigured(): boolean {
   return Boolean(
     serverEnv.NOCODB_BASE_URL &&
       serverEnv.NOCODB_API_TOKEN &&
-      serverEnv.NOCODB_REGISTRATIONS_TABLE_ID &&
-      serverEnv.RAZORPAY_KEY_ID &&
-      serverEnv.RAZORPAY_KEY_SECRET,
+      serverEnv.NOCODB_REGISTRATIONS_TABLE_ID,
   );
+}
+
+/** @deprecated Use isRegistrationConfigured — masterclass is free (no Razorpay). */
+export function isPaymentsConfigured(): boolean {
+  return isRegistrationConfigured();
 }
 
 /** True when feedback persistence can run. */

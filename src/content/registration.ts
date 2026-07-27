@@ -18,16 +18,16 @@ export const registrationBenefits = [
 
 export const whyAttend = {
   eyebrow: "Reserve your seat",
-  title: "Six hours. Four production agents.",
-  body: "Reserve your seat for two live days of building — three hours each Saturday and Sunday. Leave with four working AI agents, your certificate, and a free career roadmap — no coding required.",
+  title: "Pick your slot. Build live.",
+  body: "Choose the date and time slot that suits you, then reserve your seat for a live building session. Leave with working AI agents, your certificate, and a free career roadmap — no coding required.",
 } as const;
 
 /** Compact ticket lines above the form (Issue 6). */
 export const ticketSummary = {
   label: "Your ticket",
   lines: [
-    "Saturday 25 & Sunday 26 July 2026",
-    "7:00 PM – 10:00 PM IST each day",
+    "Your chosen date and time slot",
+    "2:00 PM – 4:00 PM or 5:00 PM – 7:00 PM IST",
     "Live Online",
     "Certificate of completion",
     "Free career roadmap",
@@ -43,11 +43,11 @@ export const conversionBridge = {
 
 export const formMicrocopy = {
   helper: "We'll send your live access link to this email.",
-  submitPrefix: "Reserve My Seat for",
+  submit: "Reserve My Seat — Free",
   pending: "Reserving your seat…",
   successTitle: "You're in.",
   successBody:
-    "Check your email for your live access link. Your certificate and career roadmap arrive after you complete both days. See you Saturday 25 July, 7:00 PM IST.",
+    "Check your email for your live access link. Your certificate and career roadmap arrive after you complete the masterclass. See you at your chosen slot.",
   errorBody: "Something went wrong. Your details are still here — try again in a moment.",
 } as const;
 
@@ -55,8 +55,8 @@ export const formMicrocopy = {
 export const finalCta = {
   eyebrow: "Last opportunity",
   urgency:
-    "Seats are limited for this two-day live build. When the countdown ends, doors close.",
-  ctaLabelPrefix: "Reserve My Seat for",
+    "Seats are limited for every live slot. Pick your date and time before they fill.",
+  ctaLabel: "Reserve My Seat — Free",
 } as const;
 
 /** FAQ transition intro (Issue 8). */

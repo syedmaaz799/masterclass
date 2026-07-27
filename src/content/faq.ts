@@ -47,15 +47,15 @@ export const faq: readonly FaqItem[] = [
   },
   {
     id: "payment",
-    question: "How does the registration payment work?",
+    question: "Is there a registration fee?",
     answer:
-      "After you submit this form, you proceed to secure checkout for ₹111 (₹4,999 value). Payment confirmation reserves your seat — without it, registration is not complete.",
+      "No. This masterclass is completely free. Submit the form with your details and chosen slot — your seat is reserved immediately, with no checkout or payment.",
   },
   {
     id: "refund",
-    question: "What is the refund policy?",
+    question: "Can I cancel my seat?",
     answer:
-      "If you could not attend or did not gain clarity from the sessions, reach out after the masterclass and we will process a refund. Email the address in the footer with your registration details — we handle the rest.",
+      "Yes. Email the address in the footer with your registration details if you need to cancel or change your slot — we handle the rest.",
   },
   {
     id: "after-register",

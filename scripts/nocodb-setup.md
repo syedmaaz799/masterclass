@@ -25,12 +25,11 @@ Put your host in `.env.local` as `NOCODB_BASE_URL` (no trailing slash), e.g.:
 | country_code | Single line text | default `IN` |
 | city | Single line text | optional |
 | user_role | Single line text | optional |
-| payment_id | Single line text | optional |
-| order_id | Single line text | optional |
-| payment_signature | Single line text | optional |
-| amount_paid | Number | default `111` |
-| payment_status | Single line text | default `unpaid` |
+| slot_date | Single line text / Date | required — chosen session date (`YYYY-MM-DD`) |
+| slot_time | Single line text | required — `2:00 PM – 4:00 PM IST` or `5:00 PM – 7:00 PM IST` |
 | course_name | Single line text | default `AI Masterclass` |
+
+Free registration — no payment columns (`amount_paid`, `payment_status`, `order_id`, etc.).
 
 Set `NOCODB_REGISTRATIONS_TABLE_ID`.
 

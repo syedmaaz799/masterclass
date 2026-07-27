@@ -16,7 +16,7 @@
 | **Tagline** | Which works 24/7 |
 | **Format** | Live Online Masterclass — two consecutive days |
 | **Dates** | **Saturday 18 July 2026** and **Sunday 19 July 2026** |
-| **Time** | **2:00 PM – 5:00 PM IST** each day (Asia/Kolkata) |
+| **Time** | **7:00 PM – 10:00 PM IST** each day (Asia/Kolkata) |
 | **Total duration** | **6 hours** — 3 hours per session |
 | **Price** | **₹111** (listed value: ₹15,000) |
 | **Coding required?** | **No** — visual, no-code tools throughout |
@@ -36,7 +36,7 @@
 
 This is a **live, hands-on build session** — not a lecture series, not a recorded course, not a theory workshop.
 
-Attendees join online for **two afternoons** and **build real AI agents from scratch** alongside the instructor. Every session ends with something **working and published** — not slides, not mockups, not “coming soon” demos.
+Attendees join online for **two evenings** and **build real AI agents from scratch** alongside the instructor. Every session ends with something **working and published** — not slides, not mockups, not “coming soon” demos.
 
 The masterclass sits at the intersection of:
 
@@ -201,7 +201,7 @@ Use this section for product shots, feature callouts, before/after visuals, and 
 
 ## 6. Schedule — hour by hour
 
-**Total:** 6 hours across 2 days · 3 hours per day · 2:00 PM – 5:00 PM IST
+**Total:** 6 hours across 2 days · 3 hours per day · 7:00 PM – 10:00 PM IST
 
 **Framing for all creative:**  
 *Each session moves from foundations to finished work. By Sunday evening, four agents exist in the world — not on a slide.*
@@ -418,7 +418,7 @@ Describe this for lifestyle B-roll, testimonial-style scripts, and “day in the
 | Deliverable | When |
 |-------------|------|
 | Live access link | Immediately after registration (email) |
-| Four deployed agents | By Sunday 5:00 PM IST |
+| Four deployed agents | By Sunday 10:00 PM IST |
 | Certificate of completion | After completing both days |
 | Career roadmap | After the masterclass (no extra cost) |
 
@@ -508,7 +508,7 @@ Use for pricing graphics, comparison tables, and “what’s included” reels.
 **Ticket summary lines for ads:**
 
 - Saturday 11 & Sunday 19 July 2026  
-- 2:00 PM – 5:00 PM IST each day  
+- 7:00 PM – 10:00 PM IST each day  
 - Live Online  
 - Certificate of completion  
 - Free career roadmap  
@@ -551,7 +551,7 @@ Use for pricing graphics, comparison tables, and “what’s included” reels.
 | Price | ₹111 |
 | Listed value | ₹15,000 |
 | Dates | 18–19 July 2026 |
-| Time | 2:00 PM – 5:00 PM IST |
+| Time | 7:00 PM – 10:00 PM IST |
 
 ### Tone and voice
 
@@ -618,7 +618,7 @@ Use these as starting points for editors and designers — not mandatory shot li
 
 ### Saturday recap script hook
 
-*Day one: foundations, API keys, and three agents live — a Q&A chatbot, a content creator, and a resume reviewer. All published before 5 PM.*
+*Day one: foundations, API keys, and three agents live — a Q&A chatbot, a content creator, and a resume reviewer. All published before 10 PM.*
 
 ### Sunday recap script hook
 

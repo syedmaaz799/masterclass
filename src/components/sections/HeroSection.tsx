@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-import { Container, EventTitle, Body, Eyebrow, Button, CountdownTimer, LiveSeatCounter } from "@/components/ui";
+import { Container, EventTitle, Body, Eyebrow, Button, LiveSeatCounter } from "@/components/ui";
 import { EventMeta } from "@/components/sections/EventMeta";
 import { event } from "@/content/event";
 import { scrollToRegister } from "@/lib/scroll-to-register";
@@ -87,16 +87,6 @@ export function HeroSection() {
             variants={item}
             className="mt-2 flex flex-col gap-6 border-t border-white/8 pt-8"
           >
-            <div className="flex flex-col gap-3">
-              <span className="font-sans text-overline uppercase text-text-2">
-                Doors open in
-              </span>
-              <CountdownTimer
-                target={event.startsAt}
-                size="lg"
-                ariaLabel={event.schedule.countdownAriaLabel}
-              />
-            </div>
             <LiveSeatCounter className="max-w-sm" />
           </motion.div>
         </motion.div>

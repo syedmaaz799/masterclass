@@ -4,7 +4,6 @@ import {
   Display,
   Body,
   Eyebrow,
-  CountdownTimer,
   LiveSeatCounter,
   EventPrice,
 } from "@/components/ui";
@@ -38,17 +37,6 @@ export function FinalCTASection() {
           </Body>
 
           <div className="flex w-full min-w-0 max-w-2xl flex-col items-center gap-6 rounded-lg border border-primary/20 bg-primary/[0.04] px-6 py-8 sm:px-10 sm:py-10">
-            <div className="flex w-full min-w-0 flex-col items-center gap-4">
-              <span className="font-sans text-overline uppercase tracking-[0.16em] text-text-2">
-                Doors open in
-              </span>
-              <CountdownTimer
-                target={event.startsAt}
-                size="lg"
-                ariaLabel={event.schedule.countdownAriaLabel}
-                className="w-full justify-center"
-              />
-            </div>
             <LiveSeatCounter className="w-full" />
             <p className="flex flex-wrap items-baseline justify-center gap-x-2 gap-y-1 font-display text-h3 text-text">
               <EventPrice size="lg" />

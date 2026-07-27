@@ -1,5 +1,5 @@
-import { Eyebrow, Body, Caption, EventPrice } from "@/components/ui";
-import { CountdownTimer, LiveSeatCounter } from "@/components/ui";
+import { Eyebrow, Body, EventPrice } from "@/components/ui";
+import { LiveSeatCounter } from "@/components/ui";
 import { EventMeta } from "@/components/sections/EventMeta";
 import { event } from "@/content/event";
 import { registrationBenefits, whyAttend } from "@/content/registration";
@@ -29,13 +29,6 @@ export function RegistrationValueColumn({ showHeader = true }: RegistrationValue
       <EventMeta />
 
       <div className="flex flex-col gap-3 border-t border-white/8 pt-8">
-        <Caption as="p" className="text-overline uppercase tracking-[0.16em]">
-          Doors open in
-        </Caption>
-        <CountdownTimer
-          target={event.startsAt}
-          ariaLabel={event.schedule.countdownAriaLabel}
-        />
         <LiveSeatCounter className="max-w-sm" />
         <p className="font-sans text-caption text-text-2">
           <span className="inline-flex flex-wrap items-baseline gap-x-2 gap-y-1">

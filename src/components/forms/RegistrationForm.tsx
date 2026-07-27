@@ -1,9 +1,10 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
-import { Button, EventPrice, Input, Select } from "@/components/ui";
+import { useCallback, useMemo, useRef, useState } from "react";
+import { Button, Input, Select } from "@/components/ui";
 import { PhoneField } from "@/components/forms/PhoneField";
 import { currentRoles } from "@/content/current-roles";
+import { getEarliestSlotDate, slotTimes } from "@/content/slots";
 import { defaultPhoneCountryCode } from "@/content/phone-countries";
 import {
   fieldErrors,
@@ -13,16 +14,13 @@ import {
 import { track, type RegistrationFieldKey } from "@/lib/analytics";
 import { formMicrocopy } from "@/content/registration";
 import { cn } from "@/lib/utils";
-import { formatRegistrationPhone } from "@/lib/validation";
-import {
-  createRegistrationOrder,
-  openRazorpayCheckout,
-  verifyRegistrationPayment,
-} from "@/lib/razorpay-checkout";
+import { submitRegistration } from "@/lib/register";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
 const emptyValues: RegistrationInput = {
+  slotDate: "",
+  slotTime: "" as RegistrationInput["slotTime"],
   name: "",
   email: "",
   phoneCountry: defaultPhoneCountryCode,
@@ -43,6 +41,7 @@ export function RegistrationForm({ formId = "register", className, source }: Reg
   const statusId = `${formId}-status`;
   const focusedRef = useRef(false);
   const completedFields = useRef(new Set<RegistrationFieldKey>());
+  const earliestSlotDate = useMemo(() => getEarliestSlotDate(), []);
 
   const [values, setValues] = useState<RegistrationInput>(emptyValues);
   const [errors, setErrors] = useState<Partial<Record<keyof RegistrationInput, string>>>({});
@@ -119,25 +118,15 @@ export function RegistrationForm({ formId = "register", className, source }: Reg
     track("registration_submit", { source });
 
     try {
-      const order = await createRegistrationOrder({ ...parsed.data, source });
-      const payment = await openRazorpayCheckout(order, {
-        name: parsed.data.name,
-        email: parsed.data.email,
-        contact: formatRegistrationPhone(parsed.data),
-      });
-      await verifyRegistrationPayment(payment);
+      await submitRegistration({ ...parsed.data, source });
       setStatus("success");
       track("registration_success", { source });
     } catch (error) {
       setStatus("idle");
       const message =
         error instanceof Error ? error.message : formMicrocopy.errorBody;
-      if (message === "Payment cancelled.") {
-        setFormError("Payment was cancelled. Your details are saved — try again when ready.");
-      } else {
-        setFormError(message || formMicrocopy.errorBody);
-        track("registration_error", { source });
-      }
+      setFormError(message || formMicrocopy.errorBody);
+      track("registration_error", { source });
     }
   };
 
@@ -165,6 +154,45 @@ export function RegistrationForm({ formId = "register", className, source }: Reg
       <div id={statusId} className="sr-only" aria-live="polite">
         {status === "submitting" ? formMicrocopy.pending : formError ?? ""}
       </div>
+
+      <Input
+        id={`${formId}-slotDate`}
+        name="slotDate"
+        type="date"
+        label="Session date"
+        required
+        min={earliestSlotDate}
+        hint="Pick any upcoming date — weekends included."
+        value={values.slotDate}
+        onChange={(e) => {
+          setValues((v) => ({ ...v, slotDate: e.target.value }));
+        }}
+        onBlur={() => markFieldComplete("slotDate", validateField("slotDate"))}
+        error={errors.slotDate}
+        disabled={status === "submitting"}
+      />
+
+      <Select
+        id={`${formId}-slotTime`}
+        name="slotTime"
+        label="Time slot"
+        required
+        hint="Two live slots per day — pick the one that suits you."
+        value={values.slotTime}
+        onChange={(e) =>
+          setValues((v) => ({
+            ...v,
+            slotTime: e.target.value as RegistrationInput["slotTime"],
+          }))
+        }
+        onBlur={() => markFieldComplete("slotTime", validateField("slotTime"))}
+        error={errors.slotTime}
+        disabled={status === "submitting"}
+        options={[
+          { value: "", label: "Select a time slot", disabled: true },
+          ...slotTimes.map((slot) => ({ value: slot, label: slot })),
+        ]}
+      />
 
       <Input
         id={`${formId}-name`}
@@ -252,14 +280,7 @@ export function RegistrationForm({ formId = "register", className, source }: Reg
       ) : null}
 
       <Button type="submit" size="lg" fullWidth loading={status === "submitting"}>
-        {status === "submitting" ? (
-          formMicrocopy.pending
-        ) : (
-          <span className="inline-flex flex-wrap items-center justify-center gap-x-1.5">
-            {formMicrocopy.submitPrefix}
-            <EventPrice size="sm" />
-          </span>
-        )}
+        {status === "submitting" ? formMicrocopy.pending : formMicrocopy.submit}
       </Button>
     </form>
   );

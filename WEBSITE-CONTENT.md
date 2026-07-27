@@ -34,7 +34,7 @@ NeuralVarsity is selling a **two-day, live online, no-code masterclass** where p
 | **Subtitle** | Learn how to build AI Agents that automate real business tasks without writing code. |
 | **Hero subheadline** | Discover how to create AI Agents that generate leads, automate communication, and perform real business tasks without coding. |
 | **Dates** | **Saturday 18 July 2026** and **Sunday 19 July 2026** |
-| **Time** | **2:00 PM – 5:00 PM IST** each day |
+| **Time** | **7:00 PM – 10:00 PM IST** each day |
 | **Duration** | **6 hours** total · **3 hours per session** · two live days |
 | **Timezone** | IST (Asia/Kolkata) |
 | **Mode** | Live Online Masterclass |
@@ -86,7 +86,7 @@ From the FAQ and positioning:
 **Section eyebrow:** Two days  
 **Section title:** Six hours. Four production agents.  
 **Section description:**  
-*“Three hours each day — Saturday and Sunday, 2:00 PM to 5:00 PM IST. Each session moves from foundations to finished work. By Sunday evening, four agents exist in the world — not on a slide.”*
+*“Three hours each day — Saturday and Sunday, 7:00 PM to 10:00 PM IST. Each session moves from foundations to finished work. By Sunday evening, four agents exist in the world — not on a slide.”*
 
 ### Saturday — Day 1
 
@@ -140,7 +140,7 @@ Listed at registration:
 **Ticket summary lines:**
 
 - Saturday 11 & Sunday 19 July 2026
-- 2:00 PM – 5:00 PM IST each day
+- 7:00 PM – 10:00 PM IST each day
 - Live Online
 - Certificate of completion
 - Free career roadmap
