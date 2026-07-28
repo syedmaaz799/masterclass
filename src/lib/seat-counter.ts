@@ -1,5 +1,9 @@
 import { event } from "@/content/event";
-import { pad2 } from "@/lib/countdown";
+
+/** Zero-pad a number to two digits for countdown labels. */
+function pad2(value: number): string {
+  return value.toString().padStart(2, "0");
+}
 
 /**
  * Seat-counter logic for the time-driven scarcity system (04-conversion).
