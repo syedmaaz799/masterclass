@@ -25,7 +25,6 @@ const clientSchema = z.object({
     .enum(["true", "false"])
     .default("false")
     .transform((v) => v === "true"),
-  NEXT_PUBLIC_RAZORPAY_KEY_ID: optionalNonEmptyString,
 });
 
 const serverSchema = z.object({
@@ -37,8 +36,6 @@ const serverSchema = z.object({
   NOCODB_REGISTRATIONS_TABLE_ID: optionalNonEmptyString,
   NOCODB_FEEDBACK_TABLE_ID: optionalNonEmptyString,
   NOCODB_SURVEY_TABLE_ID: optionalNonEmptyString,
-  RAZORPAY_KEY_ID: optionalNonEmptyString,
-  RAZORPAY_KEY_SECRET: optionalNonEmptyString,
 });
 
 function formatIssues(error: z.ZodError): string {
@@ -50,7 +47,6 @@ function formatIssues(error: z.ZodError): string {
 const parsedClient = clientSchema.safeParse({
   NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
   NEXT_PUBLIC_ANALYTICS_ENABLED: process.env.NEXT_PUBLIC_ANALYTICS_ENABLED,
-  NEXT_PUBLIC_RAZORPAY_KEY_ID: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
 });
 
 if (!parsedClient.success) {
@@ -66,8 +62,6 @@ const parsedServer = serverSchema.safeParse({
   NOCODB_REGISTRATIONS_TABLE_ID: process.env.NOCODB_REGISTRATIONS_TABLE_ID,
   NOCODB_FEEDBACK_TABLE_ID: process.env.NOCODB_FEEDBACK_TABLE_ID,
   NOCODB_SURVEY_TABLE_ID: process.env.NOCODB_SURVEY_TABLE_ID,
-  RAZORPAY_KEY_ID: process.env.RAZORPAY_KEY_ID,
-  RAZORPAY_KEY_SECRET: process.env.RAZORPAY_KEY_SECRET,
 });
 
 if (!parsedServer.success) {
@@ -91,11 +85,6 @@ export function isRegistrationConfigured(): boolean {
       serverEnv.NOCODB_API_TOKEN &&
       serverEnv.NOCODB_REGISTRATIONS_TABLE_ID,
   );
-}
-
-/** @deprecated Use isRegistrationConfigured — masterclass is free (no Razorpay). */
-export function isPaymentsConfigured(): boolean {
-  return isRegistrationConfigured();
 }
 
 /** True when feedback persistence can run. */

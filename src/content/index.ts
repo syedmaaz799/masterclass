@@ -4,6 +4,12 @@
 export { event, type EventData } from "@/content/event";
 export { agenda, type AgendaHour } from "@/content/agenda";
 export { whatYouBuild, type BuildItem } from "@/content/what-you-build";
+export {
+  aiAgentsProgram,
+  aiAgentsProgramWeeks,
+  type ProgramDay,
+  type ProgramWeek,
+} from "@/content/ai-agents-program";
 export { workflowDemoSection } from "@/content/workflow-demo";
 export {
   automationTasks,

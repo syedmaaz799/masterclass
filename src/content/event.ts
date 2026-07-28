@@ -6,13 +6,13 @@
 
 export const event = {
   brand: "NeuralVarsity",
-  series: "Agentic AI Masterclass",
+  series: "Introduction to AI Agents & Automation",
   title: "Build Your First AI Employee",
   titleTagline: "Which works 24/7",
   subtitle:
-    "Learn how to build AI Agents that automate real business tasks without writing code.",
+    "A free 2-hour live intro — AI basics, AI APIs, and your first AI agent. No coding required.",
   heroSubheadline:
-    "Discover how to create AI Agents that generate leads, automate communication, and perform real business tasks without coding.",
+    "A free 2-hour live session. Learn AI basics, work with AI APIs, and build your first AI agent — your introduction to NeuralVarsity's AI Agents & Automation program.",
 
   // Students pick their own session slot (see src/content/slots.ts):
   // any upcoming date, 2:00–4:00 PM or 5:00–7:00 PM IST.

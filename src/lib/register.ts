@@ -1,5 +1,5 @@
 /**
- * Client helper for free masterclass registration (no payment).
+ * Client helper for free masterclass registration.
  */
 
 export type RegisterResponse = {
@@ -10,7 +10,7 @@ export type RegisterResponse = {
 export async function submitRegistration(
   registration: Record<string, unknown> & { source: "hero" | "registration" },
 ): Promise<RegisterResponse> {
-  const res = await fetch("/api/register/create-order", {
+  const res = await fetch("/api/register", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(registration),

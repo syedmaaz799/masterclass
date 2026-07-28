@@ -18,8 +18,8 @@ export function WhatYouBuildSection() {
         <Reveal>
           <SectionHeading
             eyebrow="What you will see"
-            title="Four agents you will build"
-            description="Production systems on industry tools — not slides, not mockups. Working agents you leave the session owning."
+            title="Three things you will learn"
+            description="In two hours: AI basics, AI APIs, and your first live AI agent — the introduction to AI Agents & Automation."
             id="build-heading"
           />
         </Reveal>

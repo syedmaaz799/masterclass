@@ -13,43 +13,49 @@ export const faq: readonly FaqItem[] = [
     id: "who-for",
     question: "Who is this masterclass designed for?",
     answer:
-      "Anyone ready to move from consuming AI to directing it — students charting their first career path, professionals who want capability without a computer science degree, and founders who need automation without an engineering team. Curiosity and a laptop are enough; prior build experience is not required.",
+      "Anyone curious about AI agents — students, professionals, and founders who want a clear introduction before the full AI Agents & Automation program. Curiosity and a laptop are enough; prior build experience is not required.",
   },
   {
     id: "no-code",
     question: "Is programming experience required?",
     answer:
-      "No. Every agent is built with visual, no-code tools — the same approach teams use to ship production workflows without writing application code. You focus on architecture and outcomes; the platform handles the syntax.",
+      "No. The session uses visual, no-code tools — the same approach teams use to ship workflows without writing application code. You focus on concepts and outcomes; the platform handles the syntax.",
   },
   {
     id: "beginner",
     question: "Can first-time builders keep pace?",
     answer:
-      "Yes — deliberately so. We begin with how agentic AI thinks and acts, then construct each build in sequence. If you can follow a live walkthrough on your machine, you have everything this weekend demands.",
+      "Yes — deliberately so. We start with AI foundations, then AI APIs, then your first agent. If you can follow a live walkthrough on your machine, you have everything this session demands.",
   },
   {
     id: "recording",
     question: "Are sessions recorded for later viewing?",
     answer:
-      "This is a live, interactive two-day session by design. The value is in building alongside the instructor, asking questions in real time, and leaving with deployed agents — something a recording cannot replace. Plan to attend both days.",
+      "This is a live, interactive 2-hour session by design. The value is in building alongside the instructor and asking questions in real time. Plan to attend your chosen slot.",
   },
   {
     id: "joining-details",
-    question: "How will I access the live sessions?",
+    question: "How will I access the live session?",
     answer:
-      "Immediately after registration. Your live access link arrives at the email you provide — keep it accessible for both Saturday and Sunday sessions.",
+      "Immediately after registration. Your live access link arrives at the email you provide — keep it ready for your chosen date and time slot.",
   },
   {
     id: "tools",
     question: "Which tools and setup are required?",
     answer:
-      "Industry-standard no-code platforms for agents and applications, introduced step by step during the masterclass. You need a laptop, reliable internet, and free accounts where required — we walk through setup before the first build.",
+      "A laptop, reliable internet, and AI API accounts where required — we walk through setup during the session. No paid tools are required for this intro.",
   },
   {
-    id: "payment",
+    id: "is-it-free",
     question: "Is there a registration fee?",
     answer:
-      "No. This masterclass is completely free. Submit the form with your details and chosen slot — your seat is reserved immediately, with no checkout or payment.",
+      "No. This introduction masterclass is completely free. Submit the form with your details and chosen slot — your seat is reserved immediately.",
+  },
+  {
+    id: "full-program",
+    question: "How does this relate to AI Agents & Automation?",
+    answer:
+      "This 2-hour masterclass is the free introduction. After it, you can enroll in NeuralVarsity's 4-week AI Agents & Automation program — foundations through production agents across 20 live days.",
   },
   {
     id: "refund",
@@ -61,18 +67,18 @@ export const faq: readonly FaqItem[] = [
     id: "after-register",
     question: "What happens once I reserve my seat?",
     answer:
-      "A confirmation email with your live link lands within minutes. Arrive on time Saturday and Sunday with your laptop ready — by Sunday evening, four production agents live in the world: a Q&A chatbot, a content creator, a resume reviewer, and a voice news briefing.",
+      "A confirmation email with your live link lands within minutes. Arrive on time for your slot with your laptop ready — you will cover AI foundations, AI APIs, and build your first AI agent live.",
   },
   {
     id: "certificate",
     question: "Is a certificate of completion included?",
     answer:
-      "Yes. Completing both days earns a certificate of completion — evidence that you did not watch AI demos, you built with agentic systems.",
+      "Yes. Completing the session earns a certificate of completion — evidence that you built with agentic systems, not only watched demos.",
   },
   {
     id: "career-roadmap",
     question: "What does the complimentary career roadmap include?",
     answer:
-      "After the masterclass, you receive a personalized career roadmap at no extra cost — a clear view of next skills, portfolio projects, and roles worth pursuing in an economy where builders define their own leverage.",
+      "After the masterclass, you receive a personalized career roadmap at no extra cost — a clear view of next skills, projects, and how the full AI Agents & Automation program fits your path.",
   },
 ] as const;

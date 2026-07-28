@@ -5,16 +5,13 @@ import { isRegistrationConfigured } from "@/lib/env";
 import { asRecordId, createRegistration } from "@/lib/nocodb/registrations";
 import { registrationSchema } from "@/lib/validation";
 
-const createOrderSchema = registrationSchema.extend({
+const registerSchema = registrationSchema.extend({
   source: z.enum(["hero", "registration"]),
 });
 
 const courseName = `${event.brand} ${event.series} — ${event.title}`;
 
-/**
- * Free registration — saves the seat to NocoDB with no payment step.
- * Route path kept as create-order for existing client callers.
- */
+/** Free registration — saves the seat to NocoDB. */
 export async function POST(request: Request) {
   if (!isRegistrationConfigured()) {
     return NextResponse.json(
@@ -30,7 +27,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
   }
 
-  const parsed = createOrderSchema.safeParse(body);
+  const parsed = registerSchema.safeParse(body);
   if (!parsed.success) {
     return NextResponse.json(
       { error: parsed.error.issues[0]?.message ?? "Invalid registration." },

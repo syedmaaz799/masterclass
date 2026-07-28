@@ -4,12 +4,10 @@
  */
 
 export const registrationBenefits = [
-  "Build a Q&A Chatbot",
-  "Build an AI Content Creator Assistant",
-  "Build an AI Resume Reviewer",
-  "Build a Voice News Intelligence Briefing",
-  "Understand AI Workflows",
-  "Learn Agentic AI Fundamentals",
+  "AI Foundations — how modern AI and agents work",
+  "AI APIs — live setup and first requests",
+  "Build your first AI agent — no coding required",
+  "Introduction to AI Agents & Automation",
   "Certificate of completion after the masterclass",
   "Free career roadmap for your next step",
   "Beginner Friendly",
@@ -18,8 +16,8 @@ export const registrationBenefits = [
 
 export const whyAttend = {
   eyebrow: "Reserve your seat",
-  title: "Pick your slot. Build live.",
-  body: "Choose the date and time slot that suits you, then reserve your seat for a live building session. Leave with working AI agents, your certificate, and a free career roadmap — no coding required.",
+  title: "Your free introduction to AI Agents & Automation.",
+  body: "Book any day for a free 2-hour live session. Learn AI basics, work with AI APIs, and build your first AI agent — then decide if the full 4-week program is right for you.",
 } as const;
 
 /** Compact ticket lines above the form (Issue 6). */
@@ -28,9 +26,9 @@ export const ticketSummary = {
   lines: [
     "Your chosen date and time slot",
     "2:00 PM – 4:00 PM or 5:00 PM – 7:00 PM IST",
+    "2-hour free intro masterclass",
     "Live Online",
     "Certificate of completion",
-    "Free career roadmap",
     "Limited seats",
   ],
 } as const;

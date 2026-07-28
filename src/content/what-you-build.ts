@@ -1,38 +1,31 @@
-/**
- * "What you will see" deliverables (Section 3).
- * Concrete, verb-led outcomes — each names a real artifact the attendee leaves with (08-copywriting).
- */
-
-export interface BuildItem {
-  id: string;
-  name: string;
-  outcome: string;
-}
-
-export const whatYouBuild: readonly BuildItem[] = [
-  {
-    id: "knowledge-qa-agent",
-    name: "Q&A Chatbot",
-    outcome:
-      "Your first live AI agent — user input in, language model out, answer delivered. A clean three-step pipeline that teaches the foundation every agent is built on.",
-  },
-  {
-    id: "content-studio",
-    name: "AI Content Creator Assistant",
-    outcome:
-      "An intent-routing content engine — classify the ask, then generate publish-ready social posts with hooks, CTAs, and hashtags, or professional ad copy with headlines and emotional triggers. One assistant, five specialized paths.",
-  },
-  {
-    id: "resume-intelligence",
-    name: "AI Resume Reviewer",
-    outcome:
-      "Upload a CV and route the request — full review, summary, cover letter, interview prep, or career advice. Extracts the document, analyzes each section, and returns improvement suggestions you can apply immediately.",
-  },
-  {
-    id: "voice-news-researcher",
-    name: "Voice News Intelligence Briefing",
-    outcome:
-      "A voice-first research app that scans the news, synthesizes what matters, and speaks a clear briefing back — built and shipped as a real product.",
-  },
-] as const;
-
+/**
+ * "What you will see" — free 2-hour intro outcomes.
+ * Maps to the session flow: foundations → AI APIs → first AI agent.
+ */
+
+export interface BuildItem {
+  id: string;
+  name: string;
+  outcome: string;
+}
+
+export const whatYouBuild: readonly BuildItem[] = [
+  {
+    id: "ai-foundations",
+    name: "AI Foundations",
+    outcome:
+      "A clear, simple explanation of AI, language models, and agents — so you know what you are building before you start.",
+  },
+  {
+    id: "free-apis",
+    name: "AI APIs",
+    outcome:
+      "Hands-on setup with AI APIs. Get your keys, send requests, and see real responses during the session.",
+  },
+  {
+    id: "first-ai-agent",
+    name: "Your First AI Agent",
+    outcome:
+      "Build your first working AI agent live — no coding required. Your introduction to AI Agents & Automation.",
+  },
+] as const;

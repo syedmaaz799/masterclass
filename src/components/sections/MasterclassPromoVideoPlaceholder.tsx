@@ -7,7 +7,7 @@ type MasterclassPromoVideoPlaceholderProps = {
 };
 
 /**
- * 9:16 portrait promo slot — embedded YouTube Short (CLS-safe, lazy-loaded).
+ * 16:9 landscape promo slot — embedded YouTube video (CLS-safe, lazy-loaded).
  */
 export function MasterclassPromoVideoPlaceholder({
   className,
@@ -29,23 +29,21 @@ export function MasterclassPromoVideoPlaceholder({
         </Body>
       </figcaption>
 
-      <div className="flex justify-center">
-        <div
-          className={cn(
-            "relative aspect-[9/16] w-full max-w-[min(100%,20rem)] overflow-hidden rounded-lg border border-white/10 bg-surface",
-            "shadow-[inset_0_1px_0_rgb(255_255_255/0.06)]",
-          )}
-        >
-          <iframe
-            className="absolute inset-0 h-full w-full border-0"
-            src={promoVideo.embedSrc}
-            title={promoVideo.iframeTitle}
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            referrerPolicy="strict-origin-when-cross-origin"
-          />
-        </div>
+      <div
+        className={cn(
+          "relative aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-surface",
+          "shadow-[inset_0_1px_0_rgb(255_255_255/0.06)]",
+        )}
+      >
+        <iframe
+          className="absolute inset-0 h-full w-full border-0"
+          src={promoVideo.embedSrc}
+          title={promoVideo.iframeTitle}
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          referrerPolicy="strict-origin-when-cross-origin"
+        />
       </div>
     </figure>
   );

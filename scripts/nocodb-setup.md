@@ -29,7 +29,7 @@ Put your host in `.env.local` as `NOCODB_BASE_URL` (no trailing slash), e.g.:
 | slot_time | Single line text | required — `2:00 PM – 4:00 PM IST` or `5:00 PM – 7:00 PM IST` |
 | course_name | Single line text | default `AI Masterclass` |
 
-Free registration — no payment columns (`amount_paid`, `payment_status`, `order_id`, etc.).
+Free registration — do not add payment-related columns.
 
 Set `NOCODB_REGISTRATIONS_TABLE_ID`.
 
@@ -87,9 +87,6 @@ NOCODB_API_TOKEN=...
 NOCODB_REGISTRATIONS_TABLE_ID=...
 NOCODB_SURVEY_TABLE_ID=...
 NOCODB_FEEDBACK_TABLE_ID=...   # optional
-RAZORPAY_KEY_ID=...
-RAZORPAY_KEY_SECRET=...
-NEXT_PUBLIC_RAZORPAY_KEY_ID=...
 ```
 
 ## 7. Restart the app
@@ -100,6 +97,6 @@ npm run dev
 
 Flows:
 
-1. Register → NocoDB registrations + Razorpay
+1. Register → `POST /api/register` → NocoDB registrations (free — no payment)
 2. After the masterclass → `POST /api/survey` → NocoDB `masterclass_survey`
 3. Optional pre-session feedback → `POST /api/feedback`
