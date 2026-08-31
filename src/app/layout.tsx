@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { fontVariables } from "@/lib/fonts";
 import { clientEnv } from "@/lib/env";
 import { event } from "@/content/event";
+import { MetaPixel } from "@/components/analytics/MetaPixel";
 import { LenisProvider } from "@/components/motion/LenisProvider";
 import { SiteBackgroundShell } from "@/components/background/SiteBackgroundShell";
 import "./globals.css";
@@ -64,6 +65,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={fontVariables} suppressHydrationWarning>
       <body>
+        <MetaPixel />
         <SiteBackgroundShell>
           <LenisProvider>{children}</LenisProvider>
         </SiteBackgroundShell>
